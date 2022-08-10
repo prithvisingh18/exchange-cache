@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  # Backend  server
+  b-server:
+    restart: always
+    container_name: b-server
+    build:
+      context: ..
+      dockerfile: docker/server/Dockerfile
+      target: development
+    environment:
+      - NAMESPACE=a412bd42-cc13-11ea-87d0-0242ac130003
+      - SERVER_ENV=development
+      - CURRENCY_EXCHANGE_URL=https://openexchangerates.org/api/latest.json
+      - CURRENCY_EXCHANGE_API_KEY=b6e196c4dd5448ee999b227f60c487fa
+      - CRYPTO_EXCHANGE_URL=https://rest.coinapi.io/v1/assets
+      - CRYPTO_EXCHANGE_API_KEY=37A3014C-3251-401A-8BF5-7E13097DCBAE
+    volumes:
+      - ../:/usr/src/server
+    ports:
+      - 3000:3000
