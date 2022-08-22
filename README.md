@@ -15,3 +15,10 @@ Compile openssl 1.1.1
 - `sudo make install`
 - Run this always before building `export OPENSSL_DIR=/usr/local/ssl_1.1.1/`
 - Build and run `cargo run --bin ${target}`
+
+## CLI
+
+### Requirments
+
+- Load exchange rates from file.
+- If file does not exist or is outdated create one.
